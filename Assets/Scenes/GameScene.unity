@@ -709,21 +709,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2445760187616884668, guid: ea228fb9912446e4487adf905edcf72e,
-        type: 3}
-      propertyPath: mouseSens
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 2445760187616884668, guid: ea228fb9912446e4487adf905edcf72e,
-        type: 3}
-      propertyPath: moveSpeed
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 2445760187616884668, guid: ea228fb9912446e4487adf905edcf72e,
-        type: 3}
-      propertyPath: characterTurnSpeed
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 3586518497848785310, guid: ea228fb9912446e4487adf905edcf72e,
         type: 3}
       propertyPath: m_LocalPosition.x

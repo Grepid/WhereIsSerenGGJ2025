@@ -403,12 +403,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cc: {fileID: 9179289012888077026}
   acceptingInputs: 1
-  characterTurnSpeed: 5
+  characterTurnSpeed: 0.1
   model: {fileID: 2213505039613574873}
   camArm: {fileID: 3913369389037233155}
   cam: {fileID: 0}
-  moveSpeed: 50
-  mouseSens: 50
+  moveSpeed: 20
+  mouseSens: 100
   SprintMultiplier: 1
   disallowSprinting: 0
 --- !u!114 &9126160795297287164

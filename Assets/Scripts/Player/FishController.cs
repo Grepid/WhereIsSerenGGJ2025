@@ -84,7 +84,10 @@ public class FishController : MonoBehaviour
     {
         camArm.transform.rotation = Quaternion.Euler(new Vector3(lookXY.x, lookXY.y, 0));
         
-        model.transform.LookAt(transform.position + movementDirection);
+        //model.transform.LookAt(transform.position + movementDirection);
+        Vector3 lookPoint = Vector3.RotateTowards(model.transform.forward, movementDirection, characterTurnSpeed, characterTurnSpeed);
+        lookPoint = transform.position + lookPoint;
+        model.transform.LookAt(lookPoint);
         model.transform.eulerAngles = new Vector3(0, model.transform.eulerAngles.y, 0);
     }
     private void MovementUpdate()
