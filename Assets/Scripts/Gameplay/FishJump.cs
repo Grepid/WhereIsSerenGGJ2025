@@ -13,7 +13,7 @@ public class FishJump : MonoBehaviour
         public float FishValue;
 
         public bool doesSpin;
-        public FishInfo(float arcHeight,float travelTime,float fishValue)
+        public FishInfo(float arcHeight, float travelTime, float fishValue)
         {
             ArcHeight = arcHeight;
             TravelTime = travelTime;
@@ -21,9 +21,10 @@ public class FishJump : MonoBehaviour
             doesSpin = false;
         }
     }
+    public FishTypes type;
     public FishInfo info;
-    public Transform startPoint;  // The starting point of the arc
-    public Transform endPoint;    // The ending point of the arc
+    public Vector3 startPoint;  // The starting point of the arc
+    public Vector3 endPoint;    // The ending point of the arc
     public float arcHeight = 2;  // The maximum height of the arc
     public float travelTime = 2; // The time it takes to complete the arc
     public float Spinspeed = 60;
@@ -47,8 +48,8 @@ public class FishJump : MonoBehaviour
             float progress = Mathf.Clamp01(timer / info.TravelTime);
 
 
-            Vector3 start = startPoint.position;
-            Vector3 end = endPoint.position;
+            Vector3 start = startPoint;
+            Vector3 end = endPoint;
 
             Vector3 horizontalPosition = Vector3.Lerp(start, end, progress);
 
@@ -72,15 +73,17 @@ public class FishJump : MonoBehaviour
 
     public void Start()
     {
-        Initialise(FishTypes.Blue);
+        Initialise(type,startPoint,endPoint);
         timer = 0f;
         isMoving = true;
     }
 
 
-    public void Initialise(FishTypes type)
+    public void Initialise(FishTypes type,Vector3 start,Vector3 end)
     {
         info = FishType(type);
+        startPoint = start;
+        endPoint = end;
     }
     public FishInfo FishType(FishTypes type)
     {
