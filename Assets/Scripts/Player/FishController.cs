@@ -12,6 +12,7 @@ public class FishController : MonoBehaviour
     public GameObject model;
 
     public GameObject camArm;
+    public Camera cam;
     //public bool controlling;
 
     public float moveSpeed;
@@ -28,6 +29,7 @@ public class FishController : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        cam = Camera.main;
     }
 
     private void Start()
@@ -63,7 +65,10 @@ public class FishController : MonoBehaviour
         //Left / Right
         float lr = Input.GetAxis("Horizontal");
 
-        movementDirection = transform.forward * fb + transform.right * lr;
+        movementDirection = cam.transform.forward * fb + cam.transform.right * lr;
+        movementDirection.y = 0;
+        movementDirection = movementDirection.normalized;
+
         adjustedSpeed = moveSpeed;
 
     }
