@@ -18,6 +18,11 @@ public class BubbleLauncher : MonoBehaviour
         CheckInputs();
         if(spawnedBubble != null)
         {
+            if(sizeAlpha >= 1)
+            {
+                PopBubble();
+                return;
+            }
             spawnedBubble.transform.localScale = Vector3.one * Mathf.Lerp(BubbleSizeMinMax.x, BubbleSizeMinMax.y, sizeAlpha);
             sizeAlpha += (Time.deltaTime / TimeForMaxBubbleSize);
             //spawnedBubble.transform.localScale = Vector3.one * Mathf.Clamp(spawnedBubble.transform.localScale.x + ,BubbleSizeMinMax)
@@ -44,9 +49,18 @@ public class BubbleLauncher : MonoBehaviour
     }
     private void FireBubble()
     {
+        if (spawnedBubble == null) return;
         Vector3 targetPoint = Camera.main.transform.position + Camera.main.transform.forward*1000;
+        Vector3 spawnPos = Camera.main.transform.position + Camera.main.transform.forward * 4;
+        //Vector3 direction = 
         spawnedBubble.Launch(targetPoint, Mathf.Lerp(BubbleSpeedMinMax.y, BubbleSizeMinMax.x, sizeAlpha));
+        spawnedBubble.transform.position = spawnPos;
         spawnedBubble = null;
+        sizeAlpha = 0;
+    }
+    private void PopBubble()
+    {
+        Destroy(spawnedBubble.gameObject);
         sizeAlpha = 0;
     }
 }
