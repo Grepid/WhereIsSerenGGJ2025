@@ -32,6 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8206295415616009886}
+  - {fileID: 1503370538429549434}
   m_Father: {fileID: 3586518497848785310}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2223005810167191690
@@ -86,6 +87,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &2848370115725375348
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1503370538429549434}
+  m_Layer: 0
+  m_Name: BubbleSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1503370538429549434
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2848370115725375348}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.92}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 5705147638725126736}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2994416034854806700
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,7 +221,6 @@ GameObject:
   - component: {fileID: 8206295415616009886}
   - component: {fileID: 5236150997313874844}
   - component: {fileID: 2037141675784992031}
-  - component: {fileID: 730755749057777448}
   m_Layer: 0
   m_Name: ForwardIndicator
   m_TagString: Untagged
@@ -264,27 +295,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &730755749057777448
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3876358622575468878}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3913369389037233155
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,6 +338,7 @@ GameObject:
   - component: {fileID: 3586518497848785310}
   - component: {fileID: 9179289012888077026}
   - component: {fileID: 2445760187616884668}
+  - component: {fileID: 9126160795297287164}
   m_Layer: 0
   m_Name: Sharky
   m_TagString: Untagged
@@ -392,11 +403,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cc: {fileID: 9179289012888077026}
   acceptingInputs: 1
-  characterTurnSpeed: 5
+  characterTurnSpeed: 0.1
   model: {fileID: 2213505039613574873}
   camArm: {fileID: 3913369389037233155}
   cam: {fileID: 0}
-  moveSpeed: 50
-  mouseSens: 50
+  moveSpeed: 20
+  mouseSens: 100
   SprintMultiplier: 1
   disallowSprinting: 0
+--- !u!114 &9126160795297287164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6504590349358214814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3a22a103b1311c41820db20d15b187a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BubbleSizeMinMax: {x: 0.5, y: 1.5}
+  BubbleSpeedMinMax: {x: 5, y: 15}
+  TimeForMaxBubbleSize: 4
+  BubbleSpawn: {fileID: 1503370538429549434}
+  BubblePrefab: {fileID: 2994469501352488788, guid: 2cd78454eb2463a48971d8c79f2c2426,
+    type: 3}

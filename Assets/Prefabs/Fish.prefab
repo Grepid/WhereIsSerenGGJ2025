@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 477907657431131283}
   - component: {fileID: 1887412569186169582}
   - component: {fileID: 6532661259720368311}
-  - component: {fileID: 5641673642835947244}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -86,29 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &5641673642835947244
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3416319204534723846}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5819516953066026774
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,7 +94,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8942240632959362408}
+  - component: {fileID: 105268766611506523}
   - component: {fileID: 4152772384375534888}
+  - component: {fileID: 8449104053350958512}
   m_Layer: 0
   m_Name: Fish
   m_TagString: Untagged
@@ -142,6 +120,29 @@ Transform:
   - {fileID: 477907657431131283}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &105268766611506523
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5819516953066026774}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4152772384375534888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,3 +155,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 442ba426d5b167a4381fd6acea170d13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8449104053350958512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5819516953066026774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4ca1705066072c4095be43d4ba27221, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startPoint: {fileID: 0}
+  endPoint: {fileID: 0}
+  arcHeight: 2
+  travelTime: 2
+  Spinspeed: 60
+  DoesSpin: 0
+  FishValue: 0
