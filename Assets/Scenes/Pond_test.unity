@@ -689,8 +689,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4ca1705066072c4095be43d4ba27221, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPoint: {fileID: 5958382}
-  endPoint: {fileID: 8060564}
+  type: 0
+  startPoint: {x: 14.05, y: 3.27, z: 12.77}
+  endPoint: {x: 23.2, y: 3.27, z: 21.78}
   arcHeight: 2
   travelTime: 2
   Spinspeed: 60
@@ -923,8 +924,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4ca1705066072c4095be43d4ba27221, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPoint: {fileID: 0}
-  endPoint: {fileID: 0}
+  type: 1
+  startPoint: {x: 15.47, y: 3.27, z: 28.31}
+  endPoint: {x: 8.76, y: 3.27, z: 19.32}
   arcHeight: 2
   travelTime: 2
   Spinspeed: 60
@@ -962,8 +964,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4ca1705066072c4095be43d4ba27221, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPoint: {fileID: 877066657}
-  endPoint: {fileID: 5958382}
+  type: 2
+  startPoint: {x: 8.76, y: 3.27, z: 19.32}
+  endPoint: {x: 14.05, y: 3.27, z: 12.77}
   arcHeight: 2
   travelTime: 2
   Spinspeed: 60
@@ -1391,8 +1394,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4ca1705066072c4095be43d4ba27221, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPoint: {fileID: 8060564}
-  endPoint: {fileID: 771156893}
+  type: 3
+  startPoint: {x: 23.2, y: 3.27, z: 21.78}
+  endPoint: {x: 15.47, y: 3.27, z: 28.31}
   arcHeight: 2
   travelTime: 2
   Spinspeed: 60
