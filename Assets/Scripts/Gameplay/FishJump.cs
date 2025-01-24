@@ -2,8 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum FishTypes {Blue,Red,Yellow,Green}
+
 public class FishJump : MonoBehaviour
 {
+    public struct FishInfo
+    {
+        public float ArcHeight;
+        public float TravelTime;
+        public float FishValue;
+
+        public bool doesSpin;
+        public FishInfo(float arcHeight,float travelTime,float fishValue)
+        {
+            ArcHeight = arcHeight;
+            TravelTime = travelTime;
+            FishValue = fishValue;
+            doesSpin = false;
+        }
+    }
+    public FishInfo info;
     public Transform startPoint;  // The starting point of the arc
     public Transform endPoint;    // The ending point of the arc
     public float arcHeight = 2;  // The maximum height of the arc
@@ -26,7 +44,7 @@ public class FishJump : MonoBehaviour
             timer += Time.deltaTime;
 
 
-            float progress = Mathf.Clamp01(timer / travelTime);
+            float progress = Mathf.Clamp01(timer / info.TravelTime);
 
 
             Vector3 start = startPoint.position;
@@ -35,11 +53,11 @@ public class FishJump : MonoBehaviour
             Vector3 horizontalPosition = Vector3.Lerp(start, end, progress);
 
 
-            float height = Mathf.Sin(progress * Mathf.PI) * arcHeight;
+            float height = Mathf.Sin(progress * Mathf.PI) * info.ArcHeight;
 
             transform.position = new Vector3(horizontalPosition.x, horizontalPosition.y + height, horizontalPosition.z);
 
-            if (DoesSpin == true)
+            if (info.doesSpin == true)
             {
                 transform.Rotate(Vector3.up, Spinspeed * Time.deltaTime, Space.Self);
             }
@@ -54,34 +72,41 @@ public class FishJump : MonoBehaviour
 
     public void Start()
     {
+        Initialise(FishTypes.Blue);
         timer = 0f;
         isMoving = true;
     }
 
 
-    public void Fishtypes()
+    public void Initialise(FishTypes type)
     {
-        //Blue fish 
-        arcHeight = 5;
-        travelTime = 1.5f;
-        FishValue = 100;
+        info = FishType(type);
+    }
+    public FishInfo FishType(FishTypes type)
+    {
+        FishInfo result = new FishInfo();
 
+        switch (type)
+        {
+            case FishTypes.Blue:
+                result = new FishInfo(5,1.5f,100);
+                break;
 
-        //Red fish        
-        arcHeight = 5;
-        travelTime = 3;
-        FishValue = 50;
+            case FishTypes.Red:
+                result = new FishInfo(5, 3, 50);
+                break;
 
-        //Yellow fish
-        arcHeight = 10;
-        travelTime = 2;
-        FishValue = 75;
+            case FishTypes.Yellow:
+                result = new FishInfo(10, 2, 75);
+                break;
 
-        //Green fish
-        arcHeight = 7.5f;
-        travelTime = 2;
-        FishValue = 75;
-        DoesSpin = true;
+            case FishTypes.Green:
+                result = new FishInfo(7.5f, 2, 75);
+                result.doesSpin = true;
+                break;
+        }
+        
+        return result;
     }
 
 }

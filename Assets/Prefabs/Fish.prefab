@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 8942240632959362408}
   - component: {fileID: 105268766611506523}
   - component: {fileID: 4152772384375534888}
+  - component: {fileID: 8449104053350958512}
   m_Layer: 0
   m_Name: Fish
   m_TagString: Untagged
@@ -154,3 +155,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 442ba426d5b167a4381fd6acea170d13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8449104053350958512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5819516953066026774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4ca1705066072c4095be43d4ba27221, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startPoint: {fileID: 0}
+  endPoint: {fileID: 0}
+  arcHeight: 2
+  travelTime: 2
+  Spinspeed: 60
+  DoesSpin: 0
+  FishValue: 0
