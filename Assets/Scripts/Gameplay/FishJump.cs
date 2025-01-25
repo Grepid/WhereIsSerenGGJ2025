@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public enum FishTypes {Blue,Red,Yellow,Green}
@@ -29,6 +30,7 @@ public class FishJump : MonoBehaviour
     public float travelTime = 2; // The time it takes to complete the arc
     public float Spinspeed = 60;
 
+    private bool RunWaterOnce = true;
     public bool DoesSpin = false;
     public int FishValue;
 
@@ -63,11 +65,16 @@ public class FishJump : MonoBehaviour
             {
                 transform.Rotate(Vector3.up, Spinspeed * Time.deltaTime, Space.Self);
             }
-            
-            if (progress >= 1f)
+
+            if (progress >= 0.9f && RunWaterOnce == true)
             {
                 var effect = Instantiate(SplashEffect);
                 effect.transform.position = endPoint;
+                RunWaterOnce = false;
+            }
+
+            if (progress >= 1f)
+            {
                 Destroy(gameObject);
             }
         }
