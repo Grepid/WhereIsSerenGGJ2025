@@ -14,8 +14,16 @@ public class BubbleLauncher : MonoBehaviour
     private Bubble spawnedBubble;
     private float sizeAlpha;
     public float initialBubbleDistance;
+    float lastShotTime;
+    public float ShotDelay;
 
+    public static BubbleLauncher instance;
 
+    private void Awake()
+    {
+        instance = this;
+    }
+    float maxHeldTime;
     private void Update()
     {
         CheckInputs();
@@ -23,7 +31,8 @@ public class BubbleLauncher : MonoBehaviour
         {
             if(sizeAlpha >= 1)
             {
-                PopBubble();
+                maxHeldTime += Time.deltaTime;
+                if(maxHeldTime > 1) PopBubble();
                 return;
             }
             spawnedBubble.transform.localScale = Vector3.one * Mathf.Lerp(BubbleSizeMinMax.x, BubbleSizeMinMax.y, sizeAlpha);
@@ -33,8 +42,11 @@ public class BubbleLauncher : MonoBehaviour
     }
     private void CheckInputs()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Buy_menu.InShop) return;
+        if (Input.GetMouseButton(0))
         {
+            if (Time.time < lastShotTime + ShotDelay) return;
+            if (spawnedBubble != null) return;
             SpawnBubble();
         }
         if (Input.GetMouseButtonUp(0))
@@ -60,13 +72,17 @@ public class BubbleLauncher : MonoBehaviour
         spawnedBubble.Launch(Camera.main.transform.forward, initialBubbleDistance, speed,pitch);
         spawnedBubble.transform.position = spawnPos;
         spawnedBubble = null;
+        lastShotTime = Time.time;
         sizeAlpha = 0;
     }
     private void PopBubble()
     {
         var source = AudioManager.Play("BubblePop", transform.position);
-        source.AudioSource.pitch = Mathf.Lerp(BubblePopPitchMinMax.y, BubblePopPitchMinMax.x, sizeAlpha); ;
+        source.AudioSource.pitch = Mathf.Lerp(BubblePopPitchMinMax.y, BubblePopPitchMinMax.x, sizeAlpha);
+        maxHeldTime = 0;
         Destroy(spawnedBubble.gameObject);
         sizeAlpha = 0;
     }
+
+
 }

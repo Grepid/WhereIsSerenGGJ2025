@@ -8,9 +8,11 @@ public class Enter_Shop : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject != FishController.instance.gameObject) return;
         Shop_UI.gameObject.SetActive(true);
-
+        print("entered");
         FishController.instance.PlayerCursor(true);
         FishController.instance.acceptingInputs = false;
+        Buy_menu.InShop = true;
     }
 }

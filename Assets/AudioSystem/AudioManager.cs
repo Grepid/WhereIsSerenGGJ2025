@@ -365,7 +365,7 @@ namespace AudioSystem
             if (s == null)
             {
                 Debug.LogWarning("Sound "+name+" not found");
-                s = new Sound();
+                s = ScriptableObject.CreateInstance<Sound>();
             }
 
             AudioSource audSource = focus.AudioSource;
