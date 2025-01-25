@@ -1,3 +1,4 @@
+using AudioSystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,11 +7,13 @@ public class BubbleLauncher : MonoBehaviour
 {
     public Vector2 BubbleSizeMinMax;
     public Vector2 BubbleSpeedMinMax;
+    public Vector2 BubblePopPitchMinMax;
     public float TimeForMaxBubbleSize;
     public Transform BubbleSpawn;
     public GameObject BubblePrefab;
     private Bubble spawnedBubble;
     private float sizeAlpha;
+    public float initialBubbleDistance;
 
 
     private void Update()
@@ -50,16 +53,19 @@ public class BubbleLauncher : MonoBehaviour
     private void FireBubble()
     {
         if (spawnedBubble == null) return;
-        Vector3 targetPoint = Camera.main.transform.position + Camera.main.transform.forward*1000;
+        //Vector3 targetPoint = Camera.main.transform.position + Camera.main.transform.forward*initialBubbleDistance;
+        float pitch = Mathf.Lerp(BubblePopPitchMinMax.y, BubblePopPitchMinMax.x, sizeAlpha);
         Vector3 spawnPos = Camera.main.transform.position + Camera.main.transform.forward * 4;
-        //Vector3 direction = 
-        spawnedBubble.Launch(targetPoint, Mathf.Lerp(BubbleSpeedMinMax.y, BubbleSizeMinMax.x, sizeAlpha));
+        float speed = Mathf.Lerp(BubbleSpeedMinMax.y, BubbleSizeMinMax.x, sizeAlpha);
+        spawnedBubble.Launch(Camera.main.transform.forward, initialBubbleDistance, speed,pitch);
         spawnedBubble.transform.position = spawnPos;
         spawnedBubble = null;
         sizeAlpha = 0;
     }
     private void PopBubble()
     {
+        var source = AudioManager.Play("BubblePop", transform.position);
+        source.AudioSource.pitch = Mathf.Lerp(BubblePopPitchMinMax.y, BubblePopPitchMinMax.x, sizeAlpha); ;
         Destroy(spawnedBubble.gameObject);
         sizeAlpha = 0;
     }
