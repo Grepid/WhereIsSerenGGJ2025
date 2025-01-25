@@ -129,7 +129,7 @@ MonoBehaviour:
   Spinspeed: 60
   DoesSpin: 0
   FishValue: 0
-  SplashEffect: {fileID: 1722726733478836, guid: 878626fc3ba496c488a90bbd29908dc9,
+  SplashEffect: {fileID: 7022268795503775816, guid: 7377f38a94f13bd43924090d4a77f29e,
     type: 3}
 --- !u!114 &8557634748160882828
 MonoBehaviour:
