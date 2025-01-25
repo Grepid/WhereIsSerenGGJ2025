@@ -38,7 +38,8 @@ public class Bubble : MonoBehaviour
     {
         target += (direction * onFishHitDistanceIncrease);
     }
-
+    public Collider col;
+    Vector3 startPos;
     public void Launch(Vector3 direction, float distance, float speed,float popPitch)
     {
         this.popPitch = popPitch;
@@ -48,13 +49,20 @@ public class Bubble : MonoBehaviour
         transform.parent = null;
         launchTime = Time.time;
         launched = true;
+        startPos = transform.position;
+        col.enabled = true;
     }
     private bool returning;
-
+    public float maxTravelDistance;
     private void Update()
     {
         if (launched)
         {
+            if (!returning)
+            {
+                if(Vector3.Distance(startPos,transform.position) > maxTravelDistance) CheckEnd();
+                if(Time.time > launchTime + BubbleLifetime) CheckEnd();
+            }
             if (returning)
             {
                 speed += speed * 2f * Time.deltaTime;
