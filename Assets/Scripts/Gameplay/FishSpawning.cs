@@ -12,7 +12,7 @@ public class FishSpawning : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (timer >= 2f)
+        if (timer >= 1f)
         {
             Instantiate(Fish);
 
