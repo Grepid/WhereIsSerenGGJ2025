@@ -2712,6 +2712,7 @@ MonoBehaviour:
   ChargeSpeedIncrease: 10
   BubbleSizeAmount: 10
   MoveSpeedIncrease: 25
+  purchaseSound: {fileID: 8300000, guid: 7fb35f4334b988a4da685713cf56b8ee, type: 3}
 --- !u!1 &2091417590
 GameObject:
   m_ObjectHideFlags: 0
