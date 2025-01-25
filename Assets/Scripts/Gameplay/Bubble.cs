@@ -1,3 +1,4 @@
+using AudioSystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,35 +7,80 @@ public class Bubble : MonoBehaviour
 {
     bool launched;
     Vector3 target;
+    Vector3 direction;
     float speed;
     float launchTime;
     public float BubbleLifetime;
+    public float onFishHitDistanceIncrease;
+    bool hasHitFish;
+    float popPitch;
+    float speedMultiplier = 1;
+
+
+
     private void OnTriggerEnter(Collider other)
     {
         BubbleTarget target = other.GetComponent<BubbleTarget>();
         if (target == null) return;
+        IncreaseDistance();
+        hasHitFish = true;
         target.OnHit();
     }
-    public void Launch(Vector3 target, float speed)
+
+    public void IncreaseDistance()
     {
-        this.target = target;
-        this.speed = speed;
+        target += (direction * onFishHitDistanceIncrease);
+    }
+
+    public void Launch(Vector3 direction, float distance, float speed,float popPitch)
+    {
+        this.popPitch = popPitch;
+        this.target = Camera.main.transform.position + (direction * distance);
+        this.direction = direction;
+        this.speed = speed*speedMultiplier;
         transform.parent = null;
         launchTime = Time.time;
         launched = true;
     }
+    private bool returning;
 
     private void Update()
     {
         if (launched)
         {
-            transform.position = Vector3.MoveTowards(transform.position, target, speed*Time.deltaTime);
-            if(Time.time >= launchTime+BubbleLifetime) EndBubble();
+            if (returning)
+            {
+                speed += speed * 2f * Time.deltaTime;
+            }
+            Vector3 endGoal = returning ? FishController.instance.transform.position : target;
+            transform.position = Vector3.MoveTowards(transform.position, endGoal, speed*Time.deltaTime);
+            //if (Time.time >= launchTime+BubbleLifetime) EndBubble();
+            if (Vector3.Distance(transform.position,endGoal) < 0.25f) CheckEnd();
         }
+        
     }
 
-    public void EndBubble()
+    public void CheckEnd()
     {
+        if (!returning)
+        {
+            if (!hasHitFish)
+            {
+
+                DestroyBubble();
+            }
+            returning = true;
+            return;
+        }
+        if (returning)
+        {
+            DestroyBubble();
+        }
+    }
+    public void DestroyBubble()
+    {
+        var source = AudioManager.Play("BubblePop", transform.position);
+        source.AudioSource.pitch = popPitch;
         Destroy(gameObject);
     }
 }

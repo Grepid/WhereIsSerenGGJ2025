@@ -154,6 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BubbleLifetime: 5
+  onFishHitDistanceIncrease: 10
 --- !u!54 &8841366601861785730
 Rigidbody:
   m_ObjectHideFlags: 0
