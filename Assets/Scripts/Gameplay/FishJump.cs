@@ -88,7 +88,8 @@ public class FishJump : BubbleTarget
             if (progress >= 1f)
             {
                 AudioManager.Play("FishDespawn",transform.position);
-                if(fishSoar != null) fishSoar.Stop();
+                //print("DEspawn sound");
+                if (fishSoar != null) fishSoar.Stop();
                 Destroy(gameObject);
             }
             lastPoint = transform.position;
@@ -103,6 +104,7 @@ public class FishJump : BubbleTarget
 
         var effect = Instantiate(SplashEffect);
         AudioManager.Play("FishSpawn",transform.position);
+        //print("spawn sound");
         fishSoar = AudioManager.Play("FishSoar", gameObject, true);
         effect.transform.position = startPoint;
     }
