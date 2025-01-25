@@ -339,6 +339,7 @@ GameObject:
   - component: {fileID: 9179289012888077026}
   - component: {fileID: 2445760187616884668}
   - component: {fileID: 9126160795297287164}
+  - component: {fileID: 7545367866523618338}
   m_Layer: 0
   m_Name: Sharky
   m_TagString: Untagged
@@ -405,6 +406,7 @@ MonoBehaviour:
   acceptingInputs: 1
   characterTurnSpeed: 0.1
   model: {fileID: 2213505039613574873}
+  playerStats: {fileID: 7545367866523618338}
   camArm: {fileID: 3913369389037233155}
   cam: {fileID: 0}
   moveSpeed: 20
@@ -432,3 +434,15 @@ MonoBehaviour:
   BubblePrefab: {fileID: 2994469501352488788, guid: 2cd78454eb2463a48971d8c79f2c2426,
     type: 3}
   initialBubbleDistance: 25
+--- !u!114 &7545367866523618338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6504590349358214814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 997d34caa725e564da4fb7af151d655b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
