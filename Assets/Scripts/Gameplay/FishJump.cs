@@ -32,9 +32,10 @@ public class FishJump : MonoBehaviour
     public bool DoesSpin = false;
     public int FishValue;
 
-    private float timer = 0f;     // Tracks the time progress of the movement
+    private float timer = 0f;     
     private bool isMoving = false;
 
+    public GameObject SplashEffect;
 
     private void Update()
     {
@@ -62,22 +63,25 @@ public class FishJump : MonoBehaviour
             {
                 transform.Rotate(Vector3.up, Spinspeed * Time.deltaTime, Space.Self);
             }
-
+            
             if (progress >= 1f)
             {
-                timer = 0f;
-                //isMoving = false;
+                var effect = Instantiate(SplashEffect);
+                effect.transform.position = endPoint;
+                Destroy(gameObject);
             }
         }
     }
 
     public void Start()
     {
-        Initialise(type,startPoint,endPoint);
+        Initialise(type, startPoint, endPoint);
         timer = 0f;
         isMoving = true;
-    }
 
+        var effect = Instantiate(SplashEffect);
+        effect.transform.position = startPoint;
+    }
 
     public void Initialise(FishTypes type,Vector3 start,Vector3 end)
     {
