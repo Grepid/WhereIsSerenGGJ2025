@@ -14,8 +14,12 @@ public class LevelManager : MonoBehaviour
 
     public GameObject FishPrefab;
 
+    public GameObject fishSpawningParticle;
+
     [SerializeField]
     private List<FishSpawnChance> FishSpawnChances;
+
+    public Vector2 SpawnTimeMinMax;
     public float GetSpawnChance(FishTypes type)
     {
         foreach(FishSpawnChance chance in FishSpawnChances)
@@ -43,6 +47,8 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
+        SpawnFish();
+        Invoke("SpawnFish",0.1f);
         SpawnFish();
         started = true;
     }
@@ -117,9 +123,21 @@ public class LevelManager : MonoBehaviour
         var points = RandomSpawnPair();
         var type = RandomType();
 
-        GameObject fishObj = Instantiate(FishPrefab);
+        GameObject fishObj = Instantiate(FishPrefab,points.Item1.position,Quaternion.identity);
         FishJump fish = fishObj.GetComponent<FishJump>();
-        print(type);
+        //print(type);
         fish.Initialise(type, points.Item1.position, points.Item2.position);
+        fish.gameObject.SetActive(false);
+        StartCoroutine(StartSpawnDelay(fish));
+        spawnFrequency = UnityEngine.Random.Range(SpawnTimeMinMax.x, SpawnTimeMinMax.y);
+    }
+    public float SpawnDelay;
+    public IEnumerator StartSpawnDelay(FishJump fish)
+    {
+        GameObject particle = Instantiate(fishSpawningParticle);
+        particle.transform.position = fish.startPoint;
+        yield return new WaitForSeconds(SpawnDelay);
+        Destroy(particle);
+        fish.gameObject.SetActive(true);
     }
 }
