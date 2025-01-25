@@ -90,9 +90,12 @@ public class FishController : MonoBehaviour
         model.transform.LookAt(lookPoint);
         model.transform.eulerAngles = new Vector3(0, model.transform.eulerAngles.y, 0);
     }
+    public float Gravity;
     private void MovementUpdate()
     {
         cc.Move(movementDirection * Time.deltaTime * adjustedSpeed);
+        //Gravity
+        cc.Move(Vector3.down * Gravity * Time.deltaTime);
 
     }
     private void CheckInputs()

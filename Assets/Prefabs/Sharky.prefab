@@ -411,6 +411,7 @@ MonoBehaviour:
   mouseSens: 100
   SprintMultiplier: 1
   disallowSprinting: 0
+  Gravity: 10
 --- !u!114 &9126160795297287164
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -191,9 +191,11 @@ namespace AudioSystem
             GameObject go = new GameObject(SoundSourceIdentifier + soundSources.Count);
             go.transform.parent = masterSource.transform;
             AudioSource audSource = go.AddComponent<AudioSource>();
+            audSource.priority = 0;
             AudioPlayer player = go.AddComponent<AudioPlayer>();
             player.Initialise(audSource, null);
             soundSources.Add(player);
+
             return player;
         }
 
@@ -219,12 +221,22 @@ namespace AudioSystem
         private static AudioPlayer GetValidSource()
         {
             if (!FullValidCheck) return null;
-            AudioPlayer result = soundSources.Find(s => s != null && !s.AudioSource.isPlaying && !s.wasPausedByESC);
+            //AudioPlayer result = soundSources.Find(s => (s != null && s.AudioSource.clip == null && !s.wasPausedByESC));
+            AudioPlayer result = null;
+            /*foreach(Transform t in masterSource.transform)
+            {
+                AudioPlayer ap = t.GetComponent<AudioPlayer>();
+                if(ap != null && ap.AudioSource.clip == null && !ap.wasPausedByESC)
+                {
+                    result = ap;
+                    break;
+                }
+            }*/
             if (result == null)
             {
                 result = Instance.NewSource();
-                Debug.LogWarning("You are calling for more Audio Sources than are in the pool. This could result in small jitters. " +
-                    "try increasing the Pool Count");
+                //Debug.LogWarning("You are calling for more Audio Sources than are in the pool. This could result in small jitters. " +
+                //    "try increasing the Pool Count");
             }
             return result;
         }
@@ -511,7 +523,9 @@ namespace AudioSystem
             }
             if (overtimeEffects.Keys.Contains(player)) StopOvertimeEffect(player);
             player.AudioSource.Stop();
-            ReturnSourceToMaster(player);
+            player.AudioSource.clip = null;
+            Destroy(player.gameObject);
+            //ReturnSourceToMaster(player);
         }
 
         private static void ReturnSourceToMaster(AudioPlayer player)
