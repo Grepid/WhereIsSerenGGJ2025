@@ -9,16 +9,11 @@ public class Buy_menu : MonoBehaviour
     public float BubbleSizeAmount = 10;
     public float MoveSpeedIncrease = 25;
 
-    public AudioClip purchaseSound;
-
-    public void EnterShop()
-    {
-        // set players points here
-    }
-
     public void ExitShop() 
     {
-
+        this.gameObject.SetActive(false);
+        FishController.instance.PlayerCursor(false);
+        FishController.instance.acceptingInputs = true;
     }
 
     //Increases charge rate
