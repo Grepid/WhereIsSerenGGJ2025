@@ -16,15 +16,20 @@ public class Bubble : MonoBehaviour
     float popPitch;
     float speedMultiplier = 1;
 
+    public List<FishInfo> fishList = new List<FishInfo>();
+
 
 
     private void OnTriggerEnter(Collider other)
     {
         BubbleTarget target = other.GetComponent<BubbleTarget>();
         if (target == null) return;
-        IncreaseDistance();
-        hasHitFish = true;
         target.OnHit();
+        IncreaseDistance();
+        FishJump fish = target.GetComponent<FishJump>();
+        if (fish == null) return;
+        hasHitFish = true;
+        fishList.Add(FishJump.FishType(fish.type));
     }
 
     public void IncreaseDistance()
@@ -81,6 +86,15 @@ public class Bubble : MonoBehaviour
     {
         var source = AudioManager.Play("BubblePop", transform.position);
         source.AudioSource.pitch = popPitch;
+
+        if(fishList.Count > 0)
+        {
+            foreach(FishInfo f in fishList)
+            {
+                print(f.Type);
+            }
+        }
+
         Destroy(gameObject);
     }
 }

@@ -167,10 +167,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4ca1705066072c4095be43d4ba27221, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPoint: {fileID: 0}
-  endPoint: {fileID: 0}
+  type: 0
+  startPoint: {x: 0, y: 0, z: 0}
+  endPoint: {x: 0, y: 0, z: 0}
   arcHeight: 2
   travelTime: 2
   Spinspeed: 60
   DoesSpin: 0
   FishValue: 0
+  SplashEffect: {fileID: 7022268795503775816, guid: 7377f38a94f13bd43924090d4a77f29e,
+    type: 3}

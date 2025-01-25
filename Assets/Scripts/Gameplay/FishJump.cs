@@ -1,27 +1,30 @@
+using AudioSystem;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public enum FishTypes {Blue,Red,Yellow,Green}
-
-public class FishJump : MonoBehaviour
+public struct FishInfo
 {
-    public struct FishInfo
-    {
-        public float ArcHeight;
-        public float TravelTime;
-        public float FishValue;
+    public FishTypes Type;
+    public float ArcHeight;
+    public float TravelTime;
+    public float FishValue;
 
-        public bool doesSpin;
-        public FishInfo(float arcHeight, float travelTime, float fishValue)
-        {
-            ArcHeight = arcHeight;
-            TravelTime = travelTime;
-            FishValue = fishValue;
-            doesSpin = false;
-        }
+    public bool doesSpin;
+    public FishInfo(FishTypes type,float arcHeight, float travelTime, float fishValue)
+    {
+        Type = type;
+        ArcHeight = arcHeight;
+        TravelTime = travelTime;
+        FishValue = fishValue;
+        doesSpin = false;
     }
+}
+
+public class FishJump : BubbleTarget
+{
     public FishTypes type;
     public FishInfo info;
     public Vector3 startPoint;  // The starting point of the arc
@@ -38,6 +41,7 @@ public class FishJump : MonoBehaviour
     private bool isMoving = false;
 
     public GameObject SplashEffect;
+    private AudioPlayer fishSoar;
 
     private void Update()
     {
@@ -75,6 +79,8 @@ public class FishJump : MonoBehaviour
 
             if (progress >= 1f)
             {
+                AudioManager.Play("FishDespawn",transform.position);
+                if(fishSoar != null) fishSoar.Stop();
                 Destroy(gameObject);
             }
         }
@@ -82,11 +88,13 @@ public class FishJump : MonoBehaviour
 
     public void Start()
     {
-        Initialise(type, startPoint, endPoint);
+        //Initialise(type, startPoint, endPoint);
         timer = 0f;
         isMoving = true;
 
         var effect = Instantiate(SplashEffect);
+        AudioManager.Play("FishSpawn",transform.position);
+        fishSoar = AudioManager.Play("FishSoar", gameObject, true);
         effect.transform.position = startPoint;
     }
 
@@ -96,31 +104,37 @@ public class FishJump : MonoBehaviour
         startPoint = start;
         endPoint = end;
     }
-    public FishInfo FishType(FishTypes type)
+    public static FishInfo FishType(FishTypes type)
     {
         FishInfo result = new FishInfo();
 
         switch (type)
         {
             case FishTypes.Blue:
-                result = new FishInfo(5,1.5f,100);
+                result = new FishInfo(FishTypes.Blue,5,1.5f,100);
                 break;
 
             case FishTypes.Red:
-                result = new FishInfo(5, 3, 50);
+                result = new FishInfo(FishTypes.Red, 5, 3, 50);
                 break;
 
             case FishTypes.Yellow:
-                result = new FishInfo(10, 2, 75);
+                result = new FishInfo(FishTypes.Yellow, 10, 2, 75);
                 break;
 
             case FishTypes.Green:
-                result = new FishInfo(7.5f, 2, 75);
+                result = new FishInfo(FishTypes.Green, 7.5f, 2, 75);
                 result.doesSpin = true;
                 break;
         }
         
         return result;
+    }
+
+    public void CaughtFish()
+    {
+        if (fishSoar != null) fishSoar.Stop();
+        Destroy(gameObject);
     }
 
 }
