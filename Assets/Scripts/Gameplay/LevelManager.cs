@@ -47,7 +47,7 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        //SpawnFish();
+        SpawnFish();
         //Invoke("SpawnFish",0.1f);
         //SpawnFish();
         started = true;
