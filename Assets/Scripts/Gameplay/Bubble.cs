@@ -113,10 +113,12 @@ public class Bubble : MonoBehaviour
         {
             foreach(FishInfo f in fishList)
             {
-                print(f.Type);
+                Player.TryPurchase(-f.FishValue);
             }
+            
+            AudioManager.Play("Nom");
         }
-
+        
         Destroy(gameObject);
     }
 }

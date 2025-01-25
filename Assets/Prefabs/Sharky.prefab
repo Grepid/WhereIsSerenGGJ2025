@@ -427,13 +427,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BubbleSizeMinMax: {x: 1.25, y: 2.5}
-  BubbleSpeedMinMax: {x: 5, y: 15}
+  BubbleSpeedMinMax: {x: 15, y: 25}
   BubblePopPitchMinMax: {x: 0.5, y: 1.5}
   TimeForMaxBubbleSize: 4
   BubbleSpawn: {fileID: 1503370538429549434}
   BubblePrefab: {fileID: 2994469501352488788, guid: 2cd78454eb2463a48971d8c79f2c2426,
     type: 3}
   initialBubbleDistance: 25
+  ShotDelay: 0.5
 --- !u!114 &7545367866523618338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -446,3 +447,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 997d34caa725e564da4fb7af151d655b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hud: {fileID: 0}
