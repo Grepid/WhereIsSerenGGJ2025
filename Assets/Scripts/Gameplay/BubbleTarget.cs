@@ -6,6 +6,6 @@ public class BubbleTarget : MonoBehaviour
 {
     public void OnHit()
     {
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 }

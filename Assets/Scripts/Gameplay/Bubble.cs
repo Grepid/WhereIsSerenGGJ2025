@@ -1,6 +1,7 @@
 using AudioSystem;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using UnityEngine;
 
 public class Bubble : MonoBehaviour
@@ -29,7 +30,8 @@ public class Bubble : MonoBehaviour
         FishJump fish = target.GetComponent<FishJump>();
         if (fish == null) return;
         hasHitFish = true;
-        fishList.Add(FishJump.FishType(fish.type));
+        CaughtFish(fish);
+        
     }
 
     public void IncreaseDistance()
@@ -62,6 +64,18 @@ public class Bubble : MonoBehaviour
             //if (Time.time >= launchTime+BubbleLifetime) EndBubble();
             if (Vector3.Distance(transform.position,endGoal) < 0.25f) CheckEnd();
         }
+        
+    }
+
+    private void CaughtFish(FishJump fish)
+    {
+        GameObject fishObject = fish.gameObject;
+        fishList.Add(FishJump.FishType(fish.type));
+        fish.enabled = false;
+        Collider col = fishObject.GetComponent<Collider>();
+        col.enabled = false;
+        fishObject.transform.parent = transform;
+        fishObject.transform.localPosition = Vector3.zero;
         
     }
 

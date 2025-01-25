@@ -424,7 +424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3a22a103b1311c41820db20d15b187a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BubbleSizeMinMax: {x: 0.5, y: 1.5}
+  BubbleSizeMinMax: {x: 1.25, y: 2.5}
   BubbleSpeedMinMax: {x: 5, y: 15}
   BubblePopPitchMinMax: {x: 0.5, y: 1.5}
   TimeForMaxBubbleSize: 4
