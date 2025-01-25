@@ -44,5 +44,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 779b69ac3a92f4e46884974054f61178, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FishPrefab: {fileID: 5819516953066026774, guid: a7d26bac6bff5554f881c14c339a0ea4,
+    type: 3}
+  FishSpawnChances:
+  - type: 0
+    chance: 8
+  - type: 1
+    chance: 3
+  - type: 2
+    chance: 2
+  - type: 3
+    chance: 1
   spawnFrequency: 3
-  FishSpawnClumps: []
+  FishSpawnClumps:
+  - {fileID: 0}
+  - {fileID: 0}

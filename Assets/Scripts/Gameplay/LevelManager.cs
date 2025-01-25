@@ -5,6 +5,9 @@ using UnityEngine;
 using Grepid.BetterRandom;
 using System.Linq;
 
+// Add Delay of spawning with a particle showing where it will spawn
+
+
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance;
@@ -24,6 +27,8 @@ public class LevelManager : MonoBehaviour
 
     public float spawnFrequency;
 
+    bool started;
+
     [System.Serializable]
     public struct FishSpawnChance
     {
@@ -39,6 +44,21 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         SpawnFish();
+        started = true;
+    }
+
+    float lastSpawnTime;
+
+    private void Update()
+    {
+        if (started)
+        {
+            if(Time.time > lastSpawnTime + spawnFrequency)
+            {
+                SpawnFish();
+                lastSpawnTime = Time.time;
+            }
+        }
     }
 
     private void DebugPrints()
@@ -99,6 +119,7 @@ public class LevelManager : MonoBehaviour
 
         GameObject fishObj = Instantiate(FishPrefab);
         FishJump fish = fishObj.GetComponent<FishJump>();
+        print(type);
         fish.Initialise(type, points.Item1.position, points.Item2.position);
     }
 }

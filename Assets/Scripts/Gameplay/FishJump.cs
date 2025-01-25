@@ -40,6 +40,8 @@ public class FishJump : BubbleTarget
     private float timer = 0f;     
     private bool isMoving = false;
 
+    private Vector3 lastPoint;
+
     public GameObject SplashEffect;
     private AudioPlayer fishSoar;
 
@@ -64,6 +66,12 @@ public class FishJump : BubbleTarget
             float height = Mathf.Sin(progress * Mathf.PI) * info.ArcHeight;
 
             transform.position = new Vector3(horizontalPosition.x, horizontalPosition.y + height, horizontalPosition.z);
+            Vector3 movementDirection = lastPoint - transform.position;
+            if (info.doesSpin == false)
+            {
+                transform.LookAt(transform.position + movementDirection);
+            }
+            
 
             if (info.doesSpin == true)
             {
@@ -83,6 +91,7 @@ public class FishJump : BubbleTarget
                 if(fishSoar != null) fishSoar.Stop();
                 Destroy(gameObject);
             }
+            lastPoint = transform.position;
         }
     }
 
