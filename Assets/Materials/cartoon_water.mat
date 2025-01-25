@@ -59,12 +59,12 @@ Material:
     - _Ripple_distort_speed: 0.1
     - _Ripple_slimness: 4
     - _Ripple_speed: 0.1
-    - _Water_saturation: 5
-    - _Wave_height: 0.1
+    - _Water_saturation: 1.5
+    - _Wave_height: 0.05
     - _Wave_speed: 0.1
     m_Colors:
     - _Base_color: {r: 0, g: 0.8039217, b: 1, a: 0}
-    - _Blend_color: {r: 0.32226774, g: 0.9622642, b: 0.8487164, a: 0}
+    - _Blend_color: {r: 0.3960484, g: 0.9433962, b: 0.93768364, a: 0}
     - _Ripple_color: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
