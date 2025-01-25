@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 
@@ -41,6 +42,10 @@ namespace AudioSystem
             }
             if (followTarget)
             {
+                if(target == null)
+                {
+                    Stop(); return;
+                }
                 transform.position = target.transform.position;
             }
         }
