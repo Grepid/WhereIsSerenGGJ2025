@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   clip: {fileID: 8300000, guid: 368b8a089387c9c49bd09c42bac6061c, type: 3}
-  volume: 1
+  volume: 0.6
   pitch: 1
   loop: 0
   spatialBlend: 1
-  minDistance: 10
-  maxDistance: 1000
+  minDistance: 1
+  maxDistance: 20
   dopplerLevel: 0
