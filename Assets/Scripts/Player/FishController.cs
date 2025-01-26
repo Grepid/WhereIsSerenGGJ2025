@@ -73,6 +73,13 @@ public class FishController : MonoBehaviour
 
         }
     }
+    public GameObject DeathUI;
+    public void ShorkDie()
+    {
+        //activate UI
+        if(DeathUI != null) DeathUI.SetActive(true);
+
+    }
 
     public int dayNNites;
 
