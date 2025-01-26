@@ -37,7 +37,7 @@ public class LevelManager : MonoBehaviour
 
 
 
-    bool started;
+    public bool started;
 
     [System.Serializable]
     public struct FishSpawnChance
