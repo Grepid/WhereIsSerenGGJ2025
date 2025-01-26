@@ -56,6 +56,8 @@ public class LevelManager : MonoBehaviour
         SpawnFish();
         //Invoke("SpawnFish",0.1f);
         //SpawnFish();
+        var player = AudioManager.Play("Music");
+        player.AudioSource.volume = 0.2f;
         started = true;
     }
 
