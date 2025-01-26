@@ -6,6 +6,10 @@ public class Enter_Shop : MonoBehaviour
 {
     public GameObject Shop_UI;
 
+    private void Awake()
+    {
+        Shop_UI.SetActive(false);
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject != FishController.instance.gameObject) return;

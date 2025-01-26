@@ -29,7 +29,7 @@ public class LevelManager : MonoBehaviour
         return 0;
     }
 
-    public float spawnFrequency;
+    private float spawnFrequency;
 
     bool started;
 

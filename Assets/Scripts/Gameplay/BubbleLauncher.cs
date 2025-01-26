@@ -81,6 +81,7 @@ public class BubbleLauncher : MonoBehaviour
         source.AudioSource.pitch = Mathf.Lerp(BubblePopPitchMinMax.y, BubblePopPitchMinMax.x, sizeAlpha);
         maxHeldTime = 0;
         Destroy(spawnedBubble.gameObject);
+        lastShotTime = Time.time;
         sizeAlpha = 0;
     }
 

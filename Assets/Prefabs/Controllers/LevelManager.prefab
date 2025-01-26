@@ -46,6 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FishPrefab: {fileID: 5819516953066026774, guid: a7d26bac6bff5554f881c14c339a0ea4,
     type: 3}
+  fishSpawningParticle: {fileID: 1083048417169767895, guid: 309b808f58296f84791bb4fde849f0d1,
+    type: 3}
   FishSpawnChances:
   - type: 0
     chance: 8
@@ -55,7 +57,9 @@ MonoBehaviour:
     chance: 2
   - type: 3
     chance: 1
+  SpawnTimeMinMax: {x: 0, y: 0}
   spawnFrequency: 3
   FishSpawnClumps:
   - {fileID: 0}
   - {fileID: 0}
+  SpawnDelay: 3
