@@ -3500,6 +3500,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7410076625127522154, guid: e449e67d6de92e648be9ac038c8b5d03,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 7410076625127522154, guid: e449e67d6de92e648be9ac038c8b5d03,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.722
+      objectReference: {fileID: 0}
+    - target: {fileID: 7410076625127522154, guid: e449e67d6de92e648be9ac038c8b5d03,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16356,6 +16371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6156620aacba4554f9b9edf807f01222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skySpeed: 0
   Day: {fileID: 2100000, guid: 9ca22510633fbfd4399f1704cd9d5c72, type: 2}
   Night: {fileID: 2100000, guid: d1fdb8e44b28da34d9e922cca0bc740e, type: 2}
 --- !u!1 &1197886145
