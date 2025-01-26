@@ -52,6 +52,8 @@ public class FishController : MonoBehaviour
         {
             OxygenAmount = OxygenAmount - OxygenAmountDecrease;
             slider.value = OxygenAmount;
+
+
         }
     }
 

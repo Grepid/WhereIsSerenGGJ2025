@@ -27,6 +27,7 @@ public class DayNight : MonoBehaviour
                 skybox.ToggleDay();
                 skylight.intensity = 0.5f;
 
+                FishController.instance.PauseOxygen = true;
 
                 levelManager.started = false;
 
@@ -41,6 +42,8 @@ public class DayNight : MonoBehaviour
                 IsNightDay = true;
                 skybox.ToggleDay();
                 skylight.intensity = 1f;
+
+                FishController.instance.PauseOxygen = false;
 
                 levelManager.started = true;
 
