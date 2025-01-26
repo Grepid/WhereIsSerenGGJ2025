@@ -40,6 +40,7 @@ public class DayNight : MonoBehaviour
             if (timer >= AmountOfNightTime)
             {
                 IsNightDay = true;
+                FishController.instance.dayNNites++;
                 skybox.ToggleDay();
                 skylight.intensity = 1f;
 
