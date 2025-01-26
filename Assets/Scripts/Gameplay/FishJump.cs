@@ -11,14 +11,16 @@ public struct FishInfo
     public float ArcHeight;
     public float TravelTime;
     public float FishValue;
+    public float OxygenPercentAdd;
 
     public bool doesSpin;
-    public FishInfo(FishTypes type,float arcHeight, float travelTime, float fishValue)
+    public FishInfo(FishTypes type,float arcHeight, float travelTime, float fishValue,float oxygenPercentAdd)
     {
         Type = type;
         ArcHeight = arcHeight;
         TravelTime = travelTime;
         FishValue = fishValue;
+        OxygenPercentAdd = oxygenPercentAdd;
         doesSpin = false;
     }
 }
@@ -132,19 +134,19 @@ public class FishJump : BubbleTarget
         switch (type)
         {
             case FishTypes.Blue:
-                result = new FishInfo(FishTypes.Blue,5,8,100);
+                result = new FishInfo(FishTypes.Blue,5,8,100,10);
                 break;
 
             case FishTypes.Red:
-                result = new FishInfo(FishTypes.Red, 5, 5, 50);
+                result = new FishInfo(FishTypes.Red, 5, 5, 50,5);
                 break;
 
             case FishTypes.Yellow:
-                result = new FishInfo(FishTypes.Yellow, 10, 6, 125);
+                result = new FishInfo(FishTypes.Yellow, 10, 6, 125,12.5f);
                 break;
 
             case FishTypes.Green:
-                result = new FishInfo(FishTypes.Green, 7.5f, 3.5f, 75);
+                result = new FishInfo(FishTypes.Green, 7.5f, 3.5f, 75,7.5f);
                 result.doesSpin = true;
                 break;
         }
