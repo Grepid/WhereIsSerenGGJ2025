@@ -25,6 +25,8 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1f;
+        Points = 0;
         FishController.instance.playerStats.hud.UpdatePoints();
     }
 

@@ -8,7 +8,7 @@ public class Buy_menu : MonoBehaviour
     public float ChargeSpeedIncrease = 10;
     public float BubbleSizeAmount = 10;
     public float MoveSpeedIncrease = 25;
-    public float FireSpeedIncrease = 0.5f;
+    public float FireSpeedIncrease = 10f;
 
     public float ChargeSpeedCost,BubbleSizeCost,MoveSpeedCost,FireSpeedcost;
 
