@@ -14,7 +14,7 @@ public class Skybox_controls : MonoBehaviour
 
     private void FixedUpdate()
     {
-        RenderSettings.skybox.SetFloat("_Roation", Time.time * skySpeed);
+        RenderSettings.skybox.SetFloat("_Rotation", Time.time * skySpeed);
     }
 
     public void ToggleDay()

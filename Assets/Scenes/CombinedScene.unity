@@ -16371,7 +16371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6156620aacba4554f9b9edf807f01222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skySpeed: 0
+  skySpeed: 2
   Day: {fileID: 2100000, guid: 9ca22510633fbfd4399f1704cd9d5c72, type: 2}
   Night: {fileID: 2100000, guid: d1fdb8e44b28da34d9e922cca0bc740e, type: 2}
 --- !u!1 &1197886145
