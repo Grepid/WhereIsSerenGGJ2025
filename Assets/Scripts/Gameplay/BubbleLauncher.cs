@@ -1,6 +1,7 @@
 using AudioSystem;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class BubbleLauncher : MonoBehaviour
@@ -27,7 +28,7 @@ public class BubbleLauncher : MonoBehaviour
     private void Update()
     {
         CheckInputs();
-        if(spawnedBubble != null)
+        if(spawnedBubble != null && !bubbleHeld)
         {
             if(sizeAlpha >= 1)
             {
@@ -61,19 +62,59 @@ public class BubbleLauncher : MonoBehaviour
         spawnedBubble.transform.localPosition = Vector3.zero;
         //spawnedBubble.transform.position = BubbleSpawn.TransformPoint(Vector3.zero);
         spawnedBubble.transform.localScale = Vector3.zero;
+
+        // start charge
+        FishController.instance.animator.SetBool("AtkWindUp", true);
+        FishController.instance.animator.SetBool("Stuck", false);
     }
     private void FireBubble()
     {
         if (spawnedBubble == null) return;
         //Vector3 targetPoint = Camera.main.transform.position + Camera.main.transform.forward*initialBubbleDistance;
+        //float pitch = Mathf.Lerp(BubblePopPitchMinMax.y, BubblePopPitchMinMax.x, sizeAlpha);
+        //Vector3 spawnPos = Camera.main.transform.position + Camera.main.transform.forward * 3;
+        //float speed = Mathf.Lerp(BubbleSpeedMinMax.y, BubbleSizeMinMax.x, sizeAlpha);
+        //spawnedBubble.Launch(Camera.main.transform.forward, initialBubbleDistance, speed,pitch);
+        //spawnedBubble.transform.position = spawnPos;
+        //spawnedBubble = null;
+        //lastShotTime = Time.time;
+        //sizeAlpha = 0;
+        //// set attk
+        //FishController.instance.animator.SetBool("Atk", true);
+        //StartCoroutine(DisableAnimBools());
+        StartCoroutine(HoldBubble());
+    }
+    bool bubbleHeld;
+    private IEnumerator HoldBubble()
+    {
+        bubbleHeld = true;
         float pitch = Mathf.Lerp(BubblePopPitchMinMax.y, BubblePopPitchMinMax.x, sizeAlpha);
-        Vector3 spawnPos = Camera.main.transform.position + Camera.main.transform.forward * 4;
+        Vector3 spawnPos = Camera.main.transform.position + Camera.main.transform.forward * 3;
         float speed = Mathf.Lerp(BubbleSpeedMinMax.y, BubbleSizeMinMax.x, sizeAlpha);
-        spawnedBubble.Launch(Camera.main.transform.forward, initialBubbleDistance, speed,pitch);
         spawnedBubble.transform.position = spawnPos;
+        yield return new WaitForSeconds(0.1f);
+        FishController.instance.animator.SetBool("Atk", true);
+        //print(FishController.instance.animator.GetBool("Atk"));
+        StartCoroutine(DisableAnimBools());
+
+        yield return new WaitForSeconds(0.1f);
+        spawnedBubble.Launch(Camera.main.transform.forward, initialBubbleDistance, speed, pitch);
         spawnedBubble = null;
         lastShotTime = Time.time;
         sizeAlpha = 0;
+        // set attk
+        
+        bubbleHeld = false;
+        //StartCoroutine(DisableAnimBools());
+        
+    }
+    private IEnumerator DisableAnimBools()
+    {
+        yield return null;
+        FishController.instance.animator.SetBool("Atk", false);
+        FishController.instance.animator.SetBool("AtkWindUp", false);
+        FishController.instance.animator.SetBool("Stuck", true);
+        //yield break;
     }
     private void PopBubble()
     {
@@ -83,6 +124,7 @@ public class BubbleLauncher : MonoBehaviour
         Destroy(spawnedBubble.gameObject);
         lastShotTime = Time.time;
         sizeAlpha = 0;
+        StartCoroutine(DisableAnimBools());
     }
 
 

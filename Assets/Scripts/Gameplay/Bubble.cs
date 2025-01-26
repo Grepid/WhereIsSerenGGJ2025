@@ -115,7 +115,7 @@ public class Bubble : MonoBehaviour
             {
                 Player.TryPurchase(-f.FishValue);
             }
-            
+            FishController.instance.ShowBite();
             AudioManager.Play("Nom");
         }
         
