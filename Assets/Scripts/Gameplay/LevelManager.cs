@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Grepid.BetterRandom;
 using System.Linq;
+using AudioSystem;
 
 // Add Delay of spawning with a particle showing where it will spawn
 
@@ -29,7 +30,10 @@ public class LevelManager : MonoBehaviour
         return 0;
     }
 
-    public float spawnFrequency;
+    public float SecondsBetweenSpawnSpeedIncreases,SecondsQuickerPerDecrease;
+    private float timeOfLastSpeedIncrease;
+    public float MinimumSpawnTime;
+    private float spawnFrequency;
 
     bool started;
 
@@ -48,8 +52,8 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         SpawnFish();
-        Invoke("SpawnFish",0.1f);
-        SpawnFish();
+        //Invoke("SpawnFish",0.1f);
+        //SpawnFish();
         started = true;
     }
 
@@ -59,6 +63,12 @@ public class LevelManager : MonoBehaviour
     {
         if (started)
         {
+            if(Time.time > timeOfLastSpeedIncrease + SecondsBetweenSpawnSpeedIncreases)
+            {
+                SpawnTimeMinMax.x = Mathf.Clamp(SpawnTimeMinMax.x - SecondsQuickerPerDecrease, MinimumSpawnTime, 999);
+                SpawnTimeMinMax.y = Mathf.Clamp(SpawnTimeMinMax.y - (SecondsQuickerPerDecrease*0.75f), MinimumSpawnTime, 999);
+                timeOfLastSpeedIncrease = Time.time;
+            }
             if(Time.time > lastSpawnTime + spawnFrequency)
             {
                 SpawnFish();
@@ -134,6 +144,7 @@ public class LevelManager : MonoBehaviour
     public float SpawnDelay;
     public IEnumerator StartSpawnDelay(FishJump fish)
     {
+        AudioManager.Play("FishTelograph",fish.startPoint);
         GameObject particle = Instantiate(fishSpawningParticle);
         particle.transform.position = fish.startPoint;
         yield return new WaitForSeconds(SpawnDelay);

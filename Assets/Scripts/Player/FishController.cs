@@ -11,6 +11,8 @@ public class FishController : MonoBehaviour
     public float characterTurnSpeed;
     public GameObject model;
 
+    public Player playerStats;
+
     public GameObject camArm;
     public Camera cam;
     //public bool controlling;
@@ -39,6 +41,7 @@ public class FishController : MonoBehaviour
 
     void Update()
     {
+        if (!acceptingInputs) return;
         AssignVariables();
         MovementUpdate();
         CameraUpdate();

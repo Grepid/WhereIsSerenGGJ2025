@@ -80,14 +80,16 @@ public class FishJump : BubbleTarget
 
             if (progress >= 0.9f && RunWaterOnce == true)
             {
-                var effect = Instantiate(SplashEffect);
-                effect.transform.position = endPoint;
+                //var effect = Instantiate(SplashEffect);
+                //effect.transform.position = endPoint;
                 RunWaterOnce = false;
             }
 
             if (progress >= 1f)
             {
                 AudioManager.Play("FishDespawn",transform.position);
+                var effect = Instantiate(SplashEffect);
+                effect.transform.position = endPoint;
                 //print("DEspawn sound");
                 if (fishSoar != null) fishSoar.Stop();
                 Destroy(gameObject);
@@ -122,19 +124,19 @@ public class FishJump : BubbleTarget
         switch (type)
         {
             case FishTypes.Blue:
-                result = new FishInfo(FishTypes.Blue,5,1.5f,100);
+                result = new FishInfo(FishTypes.Blue,5,5f,100);
                 break;
 
             case FishTypes.Red:
-                result = new FishInfo(FishTypes.Red, 5, 3, 50);
+                result = new FishInfo(FishTypes.Red, 5, 5, 50);
                 break;
 
             case FishTypes.Yellow:
-                result = new FishInfo(FishTypes.Yellow, 10, 2, 75);
+                result = new FishInfo(FishTypes.Yellow, 10, 5, 75);
                 break;
 
             case FishTypes.Green:
-                result = new FishInfo(FishTypes.Green, 7.5f, 2, 75);
+                result = new FishInfo(FishTypes.Green, 7.5f, 5, 75);
                 result.doesSpin = true;
                 break;
         }

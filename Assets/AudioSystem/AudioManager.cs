@@ -65,7 +65,7 @@ namespace AudioSystem
         }
 
         [Tooltip("The list of sounds the game has to be able to play")]
-        [NonReorderable]
+        //[NonReorderable]
         public Sound[] Sounds;
 
         [HideInInspector]
@@ -365,7 +365,7 @@ namespace AudioSystem
             if (s == null)
             {
                 Debug.LogWarning("Sound "+name+" not found");
-                s = new Sound();
+                s = ScriptableObject.CreateInstance<Sound>();
             }
 
             AudioSource audSource = focus.AudioSource;

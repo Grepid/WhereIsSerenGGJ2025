@@ -18,6 +18,6 @@ MonoBehaviour:
   pitch: 1
   loop: 0
   spatialBlend: 1
-  minDistance: 1000
+  minDistance: 50
   maxDistance: 1000
   dopplerLevel: 0
