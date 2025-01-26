@@ -124,7 +124,7 @@ public class FishJump : BubbleTarget
         switch (type)
         {
             case FishTypes.Blue:
-                result = new FishInfo(FishTypes.Blue,5,5f,100);
+                result = new FishInfo(FishTypes.Blue,5,7.5f,100);
                 break;
 
             case FishTypes.Red:
@@ -132,11 +132,11 @@ public class FishJump : BubbleTarget
                 break;
 
             case FishTypes.Yellow:
-                result = new FishInfo(FishTypes.Yellow, 10, 5, 75);
+                result = new FishInfo(FishTypes.Yellow, 10, 6, 125);
                 break;
 
             case FishTypes.Green:
-                result = new FishInfo(FishTypes.Green, 7.5f, 5, 75);
+                result = new FishInfo(FishTypes.Green, 7.5f, 3.5f, 75);
                 result.doesSpin = true;
                 break;
         }
