@@ -26751,9 +26751,9 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1948339659}
+  - {fileID: 2034420445}
   - {fileID: 832694025}
   - {fileID: 1991632856}
-  - {fileID: 2034420445}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -31052,6 +31052,22 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5250513435926606045, guid: 51a9ff090465919439935cf7187159e9,
+        type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5250513435926606045, guid: 51a9ff090465919439935cf7187159e9,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4183cc2cc49179b4d9c843a3a438842e,
+        type: 3}
+    - target: {fileID: 5250513435926606045, guid: 51a9ff090465919439935cf7187159e9,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5366902609201144000, guid: 51a9ff090465919439935cf7187159e9,
         type: 3}
