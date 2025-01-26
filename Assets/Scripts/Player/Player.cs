@@ -12,7 +12,11 @@ public class Player : MonoBehaviour
     public HUD hud;
     public static bool TryPurchase(float points)
     {
-        if (Points - points < 0) return false;
+        if (Points - points < 0)
+        {
+            //play no money audio
+            return false;
+        }
         Points -= points;
         //Update some form of UI
         FishController.instance.playerStats.hud.UpdatePoints();

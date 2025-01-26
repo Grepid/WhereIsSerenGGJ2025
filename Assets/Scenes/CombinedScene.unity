@@ -5335,6 +5335,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4135524928653864154, guid: d0e0df22ab0bdb549a8ceb180f740cd9,
         type: 3}
+      propertyPath: MinimumSpawnTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4135524928653864154, guid: d0e0df22ab0bdb549a8ceb180f740cd9,
+        type: 3}
       propertyPath: SpawnTimeMinMax.x
       value: 3
       objectReference: {fileID: 0}
@@ -5342,6 +5347,11 @@ PrefabInstance:
         type: 3}
       propertyPath: SpawnTimeMinMax.y
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4135524928653864154, guid: d0e0df22ab0bdb549a8ceb180f740cd9,
+        type: 3}
+      propertyPath: SecondsQuickerPerDecrease
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 4135524928653864154, guid: d0e0df22ab0bdb549a8ceb180f740cd9,
         type: 3}
@@ -5373,6 +5383,11 @@ PrefabInstance:
       propertyPath: 'FishSpawnClumps.Array.data[4]'
       value: 
       objectReference: {fileID: 175579733}
+    - target: {fileID: 4135524928653864154, guid: d0e0df22ab0bdb549a8ceb180f740cd9,
+        type: 3}
+      propertyPath: SecondsBetweenSpawnSpeedIncreases
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8681241727535369529, guid: d0e0df22ab0bdb549a8ceb180f740cd9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8078,6 +8093,74 @@ Transform:
   - {fileID: 2090817743}
   - {fileID: 1672575177}
   m_Father: {fileID: 957358943}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &608811613
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 608811616}
+  - component: {fileID: 608811615}
+  - component: {fileID: 608811614}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &608811614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 608811613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &608811615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 608811613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!4 &608811616
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 608811613}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &617176145
 GameObject:
@@ -12104,7 +12187,7 @@ Transform:
   m_GameObject: {fileID: 957358942}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 52.687668, y: 7.101266, z: 48.06467}
+  m_LocalPosition: {x: 52.687668, y: 7.22, z: 48.06467}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -19520,8 +19603,8 @@ Transform:
   m_GameObject: {fileID: 1415373663}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.09780657, z: -0, w: 0.99520546}
-  m_LocalPosition: {x: 54.16, y: 3.94, z: 44.71}
-  m_LocalScale: {x: 2, y: 1, z: 12}
+  m_LocalPosition: {x: 54.1, y: 3.94, z: 45}
+  m_LocalScale: {x: 2, y: 1, z: 10.31628}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -30170,3 +30253,4 @@ SceneRoots:
   - {fileID: 957358943}
   - {fileID: 1738482411}
   - {fileID: 206934348}
+  - {fileID: 608811616}

@@ -14,7 +14,7 @@ public class Enter_Shop : MonoBehaviour
     {
         if (other.gameObject != FishController.instance.gameObject) return;
         Shop_UI.gameObject.SetActive(true);
-        print("entered");
+        //print("entered");
         FishController.instance.PlayerCursor(true);
         FishController.instance.acceptingInputs = false;
         Buy_menu.InShop = true;

@@ -61,7 +61,7 @@ public class Bubble : MonoBehaviour
             if (!returning)
             {
                 if(Vector3.Distance(startPos,transform.position) > maxTravelDistance) CheckEnd();
-                if(Time.time > launchTime + BubbleLifetime) CheckEnd();
+                //if(Time.time > launchTime + BubbleLifetime) CheckEnd();
             }
             if (returning)
             {
