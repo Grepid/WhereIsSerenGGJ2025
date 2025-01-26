@@ -29,7 +29,126 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Bite
+      takeName: Bite
+      internalID: 1963171540357596104
+      firstFrame: 0
+      lastFrame: 13
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: DeformationSystem
+        weight: 1
+      - path: DeformationSystem/Root_M
+        weight: 1
+      - path: DeformationSystem/Root_M/Hip_L
+        weight: 1
+      - path: DeformationSystem/Root_M/Hip_L/Knee_L
+        weight: 1
+      - path: DeformationSystem/Root_M/Hip_L/Knee_L/Ankle_L
+        weight: 1
+      - path: DeformationSystem/Root_M/Hip_R
+        weight: 1
+      - path: DeformationSystem/Root_M/Hip_R/Knee_R
+        weight: 1
+      - path: DeformationSystem/Root_M/Hip_R/Knee_R/Ankle_R
+        weight: 1
+      - path: DeformationSystem/Root_M/RootPart1_M
+        weight: 1
+      - path: DeformationSystem/Root_M/RootPart1_M/RootPart2_M
+        weight: 1
+      - path: DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M
+        weight: 1
+      - path: DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine2_M
+        weight: 1
+      - path: DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine2_M/Spine3_M
+        weight: 1
+      - path: DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine2_M/Spine3_M/Chest_M
+        weight: 1
+      - path: DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M
+        weight: 1
+      - path: DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/Neck1_M
+        weight: 1
+      - path: DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/Neck1_M/Neck2_M
+        weight: 1
+      - path: DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/Neck1_M/Neck2_M/Head_M
+        weight: 1
+      - path: DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/Neck1_M/Neck2_M/Head_M/Eye_L
+        weight: 1
+      - path: DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/Neck1_M/Neck2_M/Head_M/Eye_L/EyeEnd_L
+        weight: 1
+      - path: DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/Neck1_M/Neck2_M/Head_M/Eye_R
+        weight: 1
+      - path: DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/Neck1_M/Neck2_M/Head_M/Eye_R/EyeEnd_R
+        weight: 1
+      - path: DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/Neck1_M/Neck2_M/Head_M/HeadEnd_M
+        weight: 1
+      - path: DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/Neck1_M/Neck2_M/Head_M/Jaw_M
+        weight: 1
+      - path: DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Neck_M/Neck1_M/Neck2_M/Head_M/Jaw_M/JawEnd_M
+        weight: 1
+      - path: DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Scapula_L
+        weight: 1
+      - path: DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Scapula_L/Shoulder_L
+        weight: 1
+      - path: DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Scapula_L/Shoulder_L/Elbow_L
+        weight: 1
+      - path: DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Scapula_L/Shoulder_L/Elbow_L/Wrist_L
+        weight: 1
+      - path: DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Scapula_R
+        weight: 1
+      - path: DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Scapula_R/Shoulder_R
+        weight: 1
+      - path: DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Scapula_R/Shoulder_R/Elbow_R
+        weight: 1
+      - path: DeformationSystem/Root_M/RootPart1_M/RootPart2_M/Spine1_M/Spine2_M/Spine3_M/Chest_M/Scapula_R/Shoulder_R/Elbow_R/Wrist_R
+        weight: 1
+      - path: DeformationSystem/Root_M/Tail0_M
+        weight: 1
+      - path: DeformationSystem/Root_M/Tail0_M/Tail1_M
+        weight: 1
+      - path: DeformationSystem/Root_M/Tail0_M/Tail1_M/Tail2_M
+        weight: 1
+      - path: DeformationSystem/Root_M/Tail0_M/Tail1_M/Tail2_M/Tail3_M
+        weight: 1
+      - path: DeformationSystem/Root_M/Tail0_M/Tail1_M/Tail2_M/Tail3_M/Tail4_M
+        weight: 1
+      - path: DeformationSystem/Root_M/Tail0_M/Tail1_M/Tail2_M/Tail3_M/Tail4_M/Tail5_M
+        weight: 1
+      - path: DeformationSystem/Root_M/Tail0_M/Tail1_M/Tail2_M/Tail3_M/Tail4_M/Tail5_M/Tail6_M
+        weight: 1
+      - path: Geometry
+        weight: 1
+      - path: Geometry/geo
+        weight: 1
+      - path: Geometry/geo/paulsharkbody_low
+        weight: 1
+      - path: Geometry/geo/paulsharkeye_low
+        weight: 1
+      maskType: 1
+      maskSource: {fileID: 31900000, guid: 56c65a21d2f6a01478862ae3c930e283, type: 2}
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []

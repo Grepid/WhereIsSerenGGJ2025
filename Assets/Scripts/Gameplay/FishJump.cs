@@ -45,6 +45,8 @@ public class FishJump : BubbleTarget
     public GameObject SplashEffect;
     private AudioPlayer fishSoar;
 
+    public List<FishColourChanger> FishColourChangerList = new List<FishColourChanger>();
+
     private void Update()
     {
 
@@ -116,6 +118,10 @@ public class FishJump : BubbleTarget
         info = FishType(type);
         startPoint = start;
         endPoint = end;
+        foreach(FishColourChanger changer in FishColourChangerList)
+        {
+            changer.SetColour(type);
+        }
     }
     public static FishInfo FishType(FishTypes type)
     {

@@ -46,6 +46,7 @@ public class BubbleLauncher : MonoBehaviour
         if (Buy_menu.InShop) return;
         if (Input.GetMouseButton(0))
         {
+            if (bubbleHeld) return;
             if (Time.time < lastShotTime + ShotDelay) return;
             if (spawnedBubble != null) return;
             SpawnBubble();
@@ -57,6 +58,7 @@ public class BubbleLauncher : MonoBehaviour
     }
     private void SpawnBubble()
     {
+        if (bubbleHeld) return;
         var bubbleObj = Instantiate(BubblePrefab, BubbleSpawn);
         spawnedBubble = bubbleObj.GetComponent<Bubble>();
         spawnedBubble.transform.localPosition = Vector3.zero;
@@ -98,6 +100,7 @@ public class BubbleLauncher : MonoBehaviour
         StartCoroutine(DisableAnimBools());
 
         yield return new WaitForSeconds(0.1f);
+        if (spawnedBubble == null) yield break;
         spawnedBubble.Launch(Camera.main.transform.forward, initialBubbleDistance, speed, pitch);
         spawnedBubble = null;
         lastShotTime = Time.time;
