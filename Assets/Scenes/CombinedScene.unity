@@ -5350,6 +5350,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4135524928653864154, guid: d0e0df22ab0bdb549a8ceb180f740cd9,
         type: 3}
+      propertyPath: SpawnDelay
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4135524928653864154, guid: d0e0df22ab0bdb549a8ceb180f740cd9,
+        type: 3}
       propertyPath: MinimumSpawnTime
       value: 0.5
       objectReference: {fileID: 0}
@@ -5366,7 +5371,7 @@ PrefabInstance:
     - target: {fileID: 4135524928653864154, guid: d0e0df22ab0bdb549a8ceb180f740cd9,
         type: 3}
       propertyPath: SecondsQuickerPerDecrease
-      value: 0.25
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4135524928653864154, guid: d0e0df22ab0bdb549a8ceb180f740cd9,
         type: 3}
@@ -5401,7 +5406,7 @@ PrefabInstance:
     - target: {fileID: 4135524928653864154, guid: d0e0df22ab0bdb549a8ceb180f740cd9,
         type: 3}
       propertyPath: SecondsBetweenSpawnSpeedIncreases
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4135524928653864154, guid: d0e0df22ab0bdb549a8ceb180f740cd9,
         type: 3}
@@ -16357,6 +16362,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1197727392}
   - component: {fileID: 1197727393}
+  - component: {fileID: 1197727394}
   m_Layer: 0
   m_Name: Skybox_controller
   m_TagString: Untagged
@@ -16394,6 +16400,21 @@ MonoBehaviour:
   skySpeed: 2
   Day: {fileID: 2100000, guid: 9ca22510633fbfd4399f1704cd9d5c72, type: 2}
   Night: {fileID: 2100000, guid: d1fdb8e44b28da34d9e922cca0bc740e, type: 2}
+--- !u!114 &1197727394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197727391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e82ed1390d3adf49bc3db4fcd5e8af4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AmountOfDayTime: 45
+  AmountOfNightTime: 15
+  skybox: {fileID: 1197727393}
 --- !u!1 &1197886145
 GameObject:
   m_ObjectHideFlags: 0
@@ -30318,6 +30339,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 1693055492}
   - {fileID: 374094823}
+  - {fileID: 1197727392}
   - {fileID: 2044916779}
   - {fileID: 492654945}
   - {fileID: 162920624}
@@ -30333,5 +30355,4 @@ SceneRoots:
   - {fileID: 1738482411}
   - {fileID: 206934348}
   - {fileID: 608811616}
-  - {fileID: 1197727392}
   - {fileID: 1935469486}

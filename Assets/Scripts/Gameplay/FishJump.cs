@@ -124,7 +124,7 @@ public class FishJump : BubbleTarget
         switch (type)
         {
             case FishTypes.Blue:
-                result = new FishInfo(FishTypes.Blue,5,7.5f,100);
+                result = new FishInfo(FishTypes.Blue,5,8,100);
                 break;
 
             case FishTypes.Red:

@@ -35,7 +35,9 @@ public class LevelManager : MonoBehaviour
     public float MinimumSpawnTime;
     private float spawnFrequency;
 
-    bool started;
+
+
+    public bool started;
 
     [System.Serializable]
     public struct FishSpawnChance
