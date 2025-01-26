@@ -115,8 +115,9 @@ public class Bubble : MonoBehaviour
             foreach(FishInfo f in fishList)
             {
                 Player.TryPurchase(-f.FishValue);
-                FishController.instance.OxygenAmount = Mathf.Clamp(FishController.instance.OxygenAmount + (FishController.instance.slider.maxValue * (f.OxygenPercentAdd / 100f)), FishController.instance.slider.minValue, FishController.instance.slider.maxValue);
+                FishController.instance.UpdateOxygen(f.OxygenPercentAdd);
             }
+            
             FishController.instance.ShowBite();
             AudioManager.Play("Nom");
         }

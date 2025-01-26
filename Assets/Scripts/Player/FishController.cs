@@ -74,6 +74,16 @@ public class FishController : MonoBehaviour
         }
     }
 
+    public int dayNNites;
+
+    public void UpdateOxygen(float add)
+    {
+        add = Mathf.Clamp((add/dayNNites), 1, 50);
+        print(add);
+        instance.OxygenAmount = Mathf.Clamp(instance.OxygenAmount + (instance.slider.maxValue * (add / 100f)), instance.slider.minValue, instance.slider.maxValue);
+        slider.value = instance.OxygenAmount;
+    }
+
     void Update()
     {
         if (!acceptingInputs) return;
