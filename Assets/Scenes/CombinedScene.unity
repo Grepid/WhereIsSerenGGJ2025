@@ -31082,13 +31082,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ChargeSpeedIncrease: -10
-  BubbleSizeAmount: 10
-  MoveSpeedIncrease: 25
-  FireSpeedIncrease: 0.5
-  ChargeSpeedCost: 200
-  BubbleSizeCost: 300
-  MoveSpeedCost: 500
-  FireSpeedcost: 250
+  BubbleSizeAmount: 5
+  MoveSpeedIncrease: 10
+  FireSpeedIncrease: -5
+  ChargeSpeedCost: 400
+  BubbleSizeCost: 600
+  MoveSpeedCost: 1000
+  FireSpeedcost: 500
 --- !u!1 &980467886043256270
 GameObject:
   m_ObjectHideFlags: 0
@@ -31596,7 +31596,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Costs 250
+  m_text: Costs 500
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -32660,7 +32660,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Costs 300
+  m_text: 'Costs 600
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -33130,7 +33132,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Costs 500
+  m_text: 'Costs 1000
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -33221,7 +33225,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Costs 200
+  m_text: Costs 400
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}

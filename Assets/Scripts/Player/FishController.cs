@@ -109,17 +109,12 @@ public class FishController : MonoBehaviour
 
         adjustedSpeed = moveSpeed;
 
+        adjustedSpeed = Mathf.Clamp(adjustedSpeed, 5, 50);
+
         blendAnim += movementDirection.magnitude > 0 ? Time.deltaTime * 3f : -Time.deltaTime * 3f;
         blendAnim = Mathf.Clamp01(blendAnim);
         animator.SetFloat("Blend", blendAnim);
 
-    }
-    public bool disallowSprinting;
-    private bool CanSprint()
-    {
-        bool result = true;
-        result &= !disallowSprinting;
-        return result;
     }
 
     private void CameraUpdate()
