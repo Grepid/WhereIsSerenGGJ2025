@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FishController : MonoBehaviour
 {
@@ -10,6 +11,12 @@ public class FishController : MonoBehaviour
     public static FishController instance;
     public float characterTurnSpeed;
     public GameObject model;
+
+    public float OxygenAmount = 1f;
+    public float OxygenAmountDecrease = 0.01f;
+    public Slider slider;
+
+    public bool PauseOxygen = false;
 
     public Player playerStats;
 
@@ -37,6 +44,15 @@ public class FishController : MonoBehaviour
     private void Start()
     {
         PlayerCursor(false);
+    }
+
+    private void FixedUpdate()
+    {
+        if (PauseOxygen == false)
+        {
+            OxygenAmount = OxygenAmount - OxygenAmountDecrease;
+            slider.value = OxygenAmount;
+        }
     }
 
     void Update()
@@ -82,11 +98,11 @@ public class FishController : MonoBehaviour
         result &= !disallowSprinting;
         return result;
     }
- 
+
     private void CameraUpdate()
     {
         camArm.transform.rotation = Quaternion.Euler(new Vector3(lookXY.x, lookXY.y, 0));
-        
+
         //model.transform.LookAt(transform.position + movementDirection);
         Vector3 lookPoint = Vector3.RotateTowards(model.transform.forward, movementDirection, characterTurnSpeed, characterTurnSpeed);
         lookPoint = transform.position + lookPoint;
@@ -103,7 +119,7 @@ public class FishController : MonoBehaviour
     }
     private void CheckInputs()
     {
-        
+
     }
 
     public void PlayerCursor(bool value)

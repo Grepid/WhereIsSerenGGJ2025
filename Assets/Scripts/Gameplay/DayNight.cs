@@ -11,6 +11,7 @@ public class DayNight : MonoBehaviour
 
     public Skybox_controls skybox;
     public LevelManager levelManager;
+    public Light skylight;
 
     private bool IsNightDay = true;
 
@@ -24,6 +25,8 @@ public class DayNight : MonoBehaviour
             {
                 IsNightDay = false;
                 skybox.ToggleDay();
+                skylight.intensity = 0.5f;
+
 
                 levelManager.started = false;
 
@@ -37,6 +40,7 @@ public class DayNight : MonoBehaviour
             {
                 IsNightDay = true;
                 skybox.ToggleDay();
+                skylight.intensity = 1f;
 
                 levelManager.started = true;
 

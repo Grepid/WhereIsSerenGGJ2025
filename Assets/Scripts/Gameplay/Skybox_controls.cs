@@ -9,7 +9,7 @@ public class Skybox_controls : MonoBehaviour
     public Material Day;
     public Material Night;
 
-    private bool flipflop;
+    private bool flipflop = true;
 
 
     private void FixedUpdate()
