@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -83,6 +84,14 @@ public class FishController : MonoBehaviour
         Time.timeScale = 0.01f;
 
     }
+    public GameObject pausePrefab;
+    public void Pause(bool value)
+    {
+        PlayerCursor(value);
+        pausePrefab.SetActive(value);
+        Time.timeScale = value ? 0.01f : 1f;
+
+    }
 
     public int dayNNites;
 
@@ -160,6 +169,14 @@ public class FishController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene("CombinedScene");
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Pause(!pausePrefab.activeSelf);
+        }
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            Pause(!pausePrefab.activeSelf);
         }
     }
 
