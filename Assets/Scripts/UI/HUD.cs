@@ -9,7 +9,7 @@ public class HUD : MonoBehaviour
 
     public void UpdatePoints()
     {
-        int rounded = Mathf.RoundToInt(Player.Points - 0.5f);
+        int rounded = Mathf.FloorToInt(Player.Points);
         points.text = rounded.ToString();
     }
 }

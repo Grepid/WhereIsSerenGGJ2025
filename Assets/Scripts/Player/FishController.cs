@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class FishController : MonoBehaviour
@@ -69,7 +70,7 @@ public class FishController : MonoBehaviour
         {
             OxygenAmount = OxygenAmount - OxygenAmountDecrease;
             slider.value = OxygenAmount;
-
+            if(OxygenAmount <= 0)ShorkDie();
 
         }
     }
@@ -78,6 +79,8 @@ public class FishController : MonoBehaviour
     {
         //activate UI
         if(DeathUI != null) DeathUI.SetActive(true);
+        PlayerCursor(true);
+        Time.timeScale = 0.01f;
 
     }
 
@@ -154,7 +157,10 @@ public class FishController : MonoBehaviour
     }
     private void CheckInputs()
     {
-
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene("CombinedScene");
+        }
     }
 
     public void PlayerCursor(bool value)

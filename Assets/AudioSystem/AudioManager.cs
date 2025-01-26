@@ -34,18 +34,8 @@ namespace AudioSystem
 
         [Tooltip("The sole singleton instance of this class")]
         private static AudioManager s_instance;
-        public static AudioManager Instance
-        {
-            get
-            {
-                if (s_instance == null)
-                {
-                    Debug.LogError("No Instance Found");
-                    return null;
-                }
-                return s_instance;
-            }
-        }
+        public static AudioManager Instance {
+            get { return s_instance; } }
 
 
         [Tooltip("The name that the GameObject created when playing a sound will be given for identification purposes")]
@@ -153,13 +143,7 @@ namespace AudioSystem
 
         private void Awake()
         {
-            if (s_instance == null) s_instance = this;
-            else
-            {
-                Destroy(this);
-                return;
-            }
-            DontDestroyOnLoad(this);
+            s_instance = this;
 
             Initialise();
         }

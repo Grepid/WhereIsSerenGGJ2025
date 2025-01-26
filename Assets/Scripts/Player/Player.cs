@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
         if (Points - points < 0)
         {
             //play no money audio
+            AudioManager.Play("Incorrect");
             return false;
         }
         Points -= points;
