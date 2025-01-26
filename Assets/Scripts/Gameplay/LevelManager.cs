@@ -35,6 +35,8 @@ public class LevelManager : MonoBehaviour
     public float MinimumSpawnTime;
     private float spawnFrequency;
 
+
+
     bool started;
 
     [System.Serializable]

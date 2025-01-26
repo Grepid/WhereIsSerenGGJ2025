@@ -2,19 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FishSpawning : MonoBehaviour
+public class DayNight : MonoBehaviour
 {
     private float timer = 0f;
 
-    public GameObject Fish; 
+    public float AmountOfDayTime;
+
+    
 
     void Update()
     {
         timer += Time.deltaTime;
 
-        if (timer >= 1f)
+        if (timer >= AmountOfDayTime)
         {
-            Instantiate(Fish);
+            
 
             timer = 0f;
         }
