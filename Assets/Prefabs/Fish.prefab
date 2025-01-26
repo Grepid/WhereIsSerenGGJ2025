@@ -173,6 +173,7 @@ MonoBehaviour:
   - {fileID: 7362152962339914385}
   - {fileID: 3147810912697586165}
   - {fileID: 6744599457386805392}
+  animator: {fileID: 5277410423363898052}
 --- !u!1 &8456370594471531577
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,7 +199,7 @@ Transform:
   m_GameObject: {fileID: 8456370594471531577}
   serializedVersion: 2
   m_LocalRotation: {x: -0.70710677, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.448}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -313,6 +314,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FishRigFile
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: c52f94b507c467a48a1db54ed3839536,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b12250504bf64ec4f8f36dd7a9062c7a, type: 2}
     - target: {fileID: 7188217690666335207, guid: c52f94b507c467a48a1db54ed3839536,
         type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -461,6 +467,12 @@ MonoBehaviour:
 --- !u!137 &3192845635656207575 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: -5469356455251543166, guid: c52f94b507c467a48a1db54ed3839536,
+    type: 3}
+  m_PrefabInstance: {fileID: 1754070108114532181}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &5277410423363898052 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: c52f94b507c467a48a1db54ed3839536,
     type: 3}
   m_PrefabInstance: {fileID: 1754070108114532181}
   m_PrefabAsset: {fileID: 0}

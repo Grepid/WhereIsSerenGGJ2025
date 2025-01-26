@@ -47,6 +47,8 @@ public class FishJump : BubbleTarget
 
     public List<FishColourChanger> FishColourChangerList = new List<FishColourChanger>();
 
+    public Animator animator;
+
     private void Update()
     {
 
@@ -153,7 +155,9 @@ public class FishJump : BubbleTarget
     public void CaughtFish()
     {
         if (fishSoar != null) fishSoar.Stop();
-        Destroy(gameObject);
+        //animator.SetFloat("Blend", 0);
+        animator.SetBool("Caught", true);
+        //animator.enabled = false;
     }
 
 }

@@ -78,11 +78,12 @@ public class Bubble : MonoBehaviour
     private void CaughtFish(FishJump fish)
     {
         GameObject fishObject = fish.gameObject;
-        fishList.Add(FishJump.FishType(fish.type));
+        fishList.Add(fish.info);
         fish.enabled = false;
         Collider col = fishObject.GetComponent<Collider>();
         col.enabled = false;
         fishObject.transform.parent = transform;
+        fish.CaughtFish();
         fishObject.transform.localPosition = Vector3.zero;
         
     }
