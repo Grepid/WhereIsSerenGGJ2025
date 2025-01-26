@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public enum Upgrades {ChargeSpeed,BubbleSize,PlayerSpeed}
+public enum Upgrades {ChargeSpeed,BubbleSize,PlayerSpeed,FireSpeed}
 
 public class Player : MonoBehaviour
 {
@@ -44,6 +44,10 @@ public class Player : MonoBehaviour
 
             case Upgrades.PlayerSpeed:
                 FishController.instance.moveSpeed = NewValue(FishController.instance.moveSpeed, value);
+                break;
+
+            case Upgrades.FireSpeed:
+                BubbleLauncher.instance.ShotDelay = NewValue(BubbleLauncher.instance.ShotDelay, value);
                 break;
 
 

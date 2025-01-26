@@ -8,8 +8,9 @@ public class Buy_menu : MonoBehaviour
     public float ChargeSpeedIncrease = 10;
     public float BubbleSizeAmount = 10;
     public float MoveSpeedIncrease = 25;
+    public float FireSpeedIncrease = 0.5f;
 
-    public float ChargeSpeedCost,BubbleSizeCost,MoveSpeedCost;
+    public float ChargeSpeedCost,BubbleSizeCost,MoveSpeedCost,FireSpeedcost;
 
     public void ExitShop() 
     {
@@ -44,7 +45,11 @@ public class Buy_menu : MonoBehaviour
 
         if (!Player.TryPurchase(MoveSpeedCost)) return;
         Player.Upgrade(Upgrades.PlayerSpeed, MoveSpeedIncrease);
-
-        //  FishController.instance.moveSpeed = FishController.instance.moveSpeed + MoveSpeedIncrease;
     }
+    public void BuyFireSpeed()
+    {
+        if (!Player.TryPurchase(FireSpeedcost)) return;
+        Player.Upgrade(Upgrades.BubbleSize, BubbleSizeAmount);
+    }
+
 }
