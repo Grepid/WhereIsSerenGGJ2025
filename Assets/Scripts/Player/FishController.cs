@@ -35,10 +35,27 @@ public class FishController : MonoBehaviour
 
     private Vector3 lastPos;
 
+    public Animator animator;
+
+    float blendAnim;
+
     private void Awake()
     {
         instance = this;
         cam = Camera.main;
+    }
+
+    public void ShowBite()
+    {
+        animator.SetBool("Biting", true);
+        StartCoroutine(DisableBite());
+
+    }
+
+    private IEnumerator DisableBite()
+    {
+        yield return null;
+        animator.SetBool("Biting", false);
     }
 
     private void Start()
@@ -91,6 +108,10 @@ public class FishController : MonoBehaviour
         movementDirection = movementDirection.normalized;
 
         adjustedSpeed = moveSpeed;
+
+        blendAnim += movementDirection.magnitude > 0 ? Time.deltaTime * 3f : -Time.deltaTime * 3f;
+        blendAnim = Mathf.Clamp01(blendAnim);
+        animator.SetFloat("Blend", blendAnim);
 
     }
     public bool disallowSprinting;
