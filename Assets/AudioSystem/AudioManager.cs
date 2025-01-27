@@ -71,7 +71,7 @@ namespace AudioSystem
         {
             get
             {
-                return soundSources.FindAll(s => s.gameObject.activeSelf);
+                return soundSources.FindAll(s => s != null && s.gameObject.activeSelf);
             }
         }
 
@@ -550,7 +550,7 @@ namespace AudioSystem
             if (!FullValidCheck) return;
             source.clip = sound.clip;
 
-            source.volume = SoundTypeVolume(sound.type);
+            source.volume = sound.volume * SoundTypeVolume(sound.type);
             source.pitch = sound.pitch;
 
             source.loop = sound.loop;

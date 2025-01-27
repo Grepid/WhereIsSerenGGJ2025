@@ -6,8 +6,6 @@ using Grepid.BetterRandom;
 using System.Linq;
 using AudioSystem;
 
-// Add Delay of spawning with a particle showing where it will spawn
-
 
 public class LevelManager : MonoBehaviour
 {
@@ -53,9 +51,6 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        SpawnFish();
-        //Invoke("SpawnFish",0.1f);
-        //SpawnFish();
         var player = AudioManager.Play("Music");
         player.AudioSource.volume = 0.2f;
         started = true;
@@ -79,15 +74,6 @@ public class LevelManager : MonoBehaviour
                 lastSpawnTime = Time.time;
             }
         }
-    }
-
-    private void DebugPrints()
-    {
-        var pair = RandomSpawnPair();
-        print(pair.Item1);
-        print(pair.Item2);
-        var type = RandomType();
-        print(type.ToString());
     }
 
     public List<GameObject> FishSpawnClumps = new List<GameObject>();
@@ -139,7 +125,6 @@ public class LevelManager : MonoBehaviour
 
         GameObject fishObj = Instantiate(FishPrefab,points.Item1.position,Quaternion.identity);
         FishJump fish = fishObj.GetComponent<FishJump>();
-        //print(type);
         fish.Initialise(type, points.Item1.position, points.Item2.position);
         fish.gameObject.SetActive(false);
         StartCoroutine(StartSpawnDelay(fish));

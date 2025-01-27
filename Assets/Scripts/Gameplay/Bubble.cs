@@ -10,7 +10,6 @@ public class Bubble : MonoBehaviour
     Vector3 target;
     Vector3 direction;
     float speed;
-    float launchTime;
     public float BubbleLifetime;
     public float onFishHitDistanceIncrease;
     bool hasHitFish;
@@ -47,7 +46,6 @@ public class Bubble : MonoBehaviour
         this.direction = direction;
         this.speed = speed*speedMultiplier;
         transform.parent = null;
-        launchTime = Time.time;
         launched = true;
         startPos = transform.position;
         col.enabled = true;
@@ -61,7 +59,6 @@ public class Bubble : MonoBehaviour
             if (!returning)
             {
                 if(Vector3.Distance(startPos,transform.position) > maxTravelDistance) CheckEnd();
-                //if(Time.time > launchTime + BubbleLifetime) CheckEnd();
             }
             if (returning)
             {
@@ -69,7 +66,6 @@ public class Bubble : MonoBehaviour
             }
             Vector3 endGoal = returning ? FishController.instance.transform.position : target;
             transform.position = Vector3.MoveTowards(transform.position, endGoal, speed*Time.deltaTime);
-            //if (Time.time >= launchTime+BubbleLifetime) EndBubble();
             if (Vector3.Distance(transform.position,endGoal) < 0.25f) CheckEnd();
         }
         

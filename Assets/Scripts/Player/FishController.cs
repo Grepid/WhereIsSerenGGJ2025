@@ -81,15 +81,17 @@ public class FishController : MonoBehaviour
         //activate UI
         if(DeathUI != null) DeathUI.SetActive(true);
         PlayerCursor(true);
-        Time.timeScale = 0.01f;
+        Time.timeScale = 0f;
 
     }
     public GameObject pausePrefab;
+    public GameObject settingsPrefab;
     public void Pause(bool value)
     {
         PlayerCursor(value);
         pausePrefab.SetActive(value);
-        Time.timeScale = value ? 0.01f : 1f;
+        settingsPrefab.SetActive(false);
+        Time.timeScale = value ? 0f : 1f;
 
     }
 
@@ -97,7 +99,7 @@ public class FishController : MonoBehaviour
 
     public void UpdateOxygen(float add)
     {
-        add = Mathf.Clamp((add/dayNNites), 1, 50);
+        add = Mathf.Clamp((add-(dayNNites/2f)), 3, 50);
         print(add);
         instance.OxygenAmount = Mathf.Clamp(instance.OxygenAmount + (instance.slider.maxValue * (add / 100f)), instance.slider.minValue, instance.slider.maxValue);
         slider.value = instance.OxygenAmount;
