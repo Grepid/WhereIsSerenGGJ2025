@@ -12320,7 +12320,7 @@ PrefabInstance:
     - target: {fileID: 4135524928653864154, guid: d0e0df22ab0bdb549a8ceb180f740cd9,
         type: 3}
       propertyPath: MinimumSpawnTime
-      value: 0.25
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4135524928653864154, guid: d0e0df22ab0bdb549a8ceb180f740cd9,
         type: 3}
